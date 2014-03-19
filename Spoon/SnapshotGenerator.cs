@@ -1,20 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Spoon
 {
     public class SnapshotGenerator
     {
-        readonly IEnumerable<string> _paths;
-
-        public SnapshotGenerator(IEnumerable<string> paths, string targetFolder)
+        public SnapshotCollection GenerateSnapshotCollection(IEnumerable<string> paths, string targetDirectory)
         {
-            _paths = paths;
+            throw new NotImplementedException();
         }
-
-
     }
 }
