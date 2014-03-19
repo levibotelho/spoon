@@ -11,18 +11,18 @@ namespace Spoon
             "(a,function(c){if(c!=='success'){fs.write('fileName',null,'w')}else{fs.write('fileName',page.content,'w')}})}var urlFilePairs=";
         const string ScriptFileFooter = ";for(var i=0;i<urlFilePairs.length;i++){WritePageFile(urlFilePairs[0],urlFilePairs[1])}}finally{phantom.exit()};";
 
-        public string GenerateScriptFile(IEnumerable<string> urls)
+        public ScriptFile GenerateScriptFile(IEnumerable<string> urls, string targetDirectory)
         {
             var path = Path.GetTempFileName();
-            var urlFileNamePairs = GenerateUrlFileNamePairs(urls);
+            var urlFileNamePairs = GenerateUrlFileNamePairs(urls, targetDirectory);
             File.WriteAllText(path, GenerateScript(urlFileNamePairs));
-            return path;
+            return new ScriptFile(path);
         }
 
-        static IEnumerable<KeyValuePair<string, string>> GenerateUrlFileNamePairs(IEnumerable<string> urls)
+        static IEnumerable<KeyValuePair<string, string>> GenerateUrlFileNamePairs(IEnumerable<string> urls, string targetDirectory)
         {
             var fileNameGenerator = new FileNameGenerator();
-            return urls.Select(x => new KeyValuePair<string, string>(x, fileNameGenerator.GenerateFileNameFromUrl(x)));
+            return urls.Select(x => new KeyValuePair<string, string>(x, fileNameGenerator.GenerateFilePathFromUrl(x, targetDirectory)));
         }
 
         static string GenerateScript(IEnumerable<KeyValuePair<string, string>> urlFileNamePairs)

@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileNameGenerator.cs" />
+    <Compile Include="ScriptFile.cs" />
     <Compile Include="ScriptFileGenerator.cs" />
     <Compile Include="SnapshotCollection.cs" />
     <Compile Include="SnapshotGenerator.cs" />
