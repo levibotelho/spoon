@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileNameGenerator.cs" />
+    <Compile Include="PhantomJs.cs" />
     <Compile Include="ScriptFile.cs" />
     <Compile Include="ScriptFileGenerator.cs" />
     <Compile Include="SnapshotCollection.cs" />

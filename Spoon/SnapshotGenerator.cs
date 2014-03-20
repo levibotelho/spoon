@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Spoon
 {
-    public class SnapshotGenerator
+    public static class SnapshotGenerator
     {
-        public SnapshotCollection GenerateSnapshotCollection(IEnumerable<string> urls, string targetDirectory)
+        public static async Task<SnapshotCollection> GenerateSnapshotCollectionAsync(IEnumerable<string> urls, string targetDirectory)
         {
-            var script = new ScriptFileGenerator().GenerateScriptFile(urls, targetDirectory);
-
-            throw new NotImplementedException();
+            var snapshotCollection = new SnapshotCollection(urls, targetDirectory);
+            var script = ScriptFileGenerator.GenerateScriptFile(snapshotCollection);
+            var phantom = new PhantomJs();
+            await phantom.RunScriptAsync(script.FullName);
+            return snapshotCollection;
         }
     }
 }

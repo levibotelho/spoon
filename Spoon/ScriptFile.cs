@@ -5,16 +5,16 @@ namespace Spoon
 {
     class ScriptFile : IDisposable
     {
-        public readonly string Path;
+        public readonly string FullName;
 
-        public ScriptFile(string path)
+        public ScriptFile(string fullName)
         {
-            Path = path;
+            FullName = fullName;
         }
 
         public void Dispose()
         {
-            File.Delete(Path);
+            File.Delete(FullName);
         }
     }
 }
