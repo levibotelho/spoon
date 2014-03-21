@@ -9,8 +9,7 @@ namespace Spoon
         {
             var snapshotCollection = new SnapshotCollection(urls, targetDirectory);
             var script = ScriptFileGenerator.GenerateScriptFile(snapshotCollection);
-            var phantom = new PhantomJs();
-            await phantom.RunScriptAsync(script.FullName);
+            await PhantomJs.RunScriptAsync(script.FullName);
             return snapshotCollection;
         }
     }
