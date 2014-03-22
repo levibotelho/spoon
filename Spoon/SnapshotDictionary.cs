@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace Spoon
 {
-    public class SnapshotCollection : IEnumerable<KeyValuePair<string, string>>
+    class SnapshotDictionary : IEnumerable<KeyValuePair<string, string>>
     {
         readonly Dictionary<string, string> _urlFileNamePairs;
 
-        internal SnapshotCollection(IEnumerable<string> urls, string targetDirectory)
+        internal SnapshotDictionary(IEnumerable<string> urls, string targetDirectory)
         {
             targetDirectory = ValidateTargetDirectory(targetDirectory);
             ValidateFragmentUnicity(urls);

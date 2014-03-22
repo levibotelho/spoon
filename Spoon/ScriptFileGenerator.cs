@@ -45,7 +45,7 @@ namespace Spoon
             var urlFileNameArray = new StringBuilder(ScriptFileHeader + "[");
             foreach (var pair in urlFileNamePairs)
             {
-                urlFileNameArray.AppendFormat("['{0}','{1}'],", pair.Key, pair.Value);
+                urlFileNameArray.AppendFormat("['{0}','{1}'],", pair.Key, pair.Value.Replace("\\", "\\\\"));
             }
 
             urlFileNameArray.Remove(urlFileNameArray.Length - 1, 1);

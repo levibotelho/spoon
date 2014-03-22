@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -12,36 +13,58 @@ namespace Spoon
         static readonly string PhantomExecutableDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "lib");
         static readonly string PhantomExecutablePath = Path.Combine(PhantomExecutableDirectory, "phantomjs.exe");
 
-        public static Task RunScriptAsync(string scriptFileName)
-        {
-            ExtractAssemblyAsync().Wait();
-
-            var process = Process.Start(PhantomExecutablePath, scriptFileName);
-            if (process == null)
-                throw new InvalidOperationException("Started process is null. Is the process already running?");
-
-            var tcs = new TaskCompletionSource<bool>();
-            process.Exited += (sender, args) =>
-            {
-                tcs.SetResult(true);
-                process.Dispose();
-            };
-
-            return tcs.Task;
-        }
-
-        static async Task ExtractAssemblyAsync()
+        public static async Task ExtractAssemblyAsync()
         {
             if (File.Exists(PhantomExecutablePath))
                 return;
             if (!Directory.Exists(PhantomExecutableDirectory))
                 Directory.CreateDirectory(PhantomExecutableDirectory);
-            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(PhantomResourceName))
+            using (var resourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(PhantomResourceName))
             {
-                if (stream == null)
+                if (resourceStream == null)
                     throw new InvalidOperationException("Failed to extract phantom.exe from assembly.");
-                await stream.CopyToAsync(File.Create(PhantomExecutablePath));
+                using (var fileStream = File.Create(PhantomExecutablePath))
+                {
+                    await resourceStream.CopyToAsync(fileStream);
+                }
             }
+        }
+
+        public static void RunScript(string scriptFileName)
+        {
+            scriptFileName = CleanFileNameSlashes(scriptFileName);
+            ExtractAssemblyAsync();
+
+            var startInfo = new ProcessStartInfo(PhantomExecutablePath, scriptFileName)
+            {
+                RedirectStandardError = true,
+                UseShellExecute = false
+            };
+
+            var process = Process.Start(startInfo);
+            if (process == null)
+                throw new InvalidOperationException("The phantomjs process cannot be started. This may be because another instance is already running.");
+            process.WaitForExit();
+
+            if (process.ExitCode != 0)
+            {
+                var errorMessage = process.StandardError.ReadToEnd();
+                throw new InvalidOperationException("The phantomjs process did not exit correctly. The corresponding error message was: " + errorMessage);
+            }
+                
+            //var tcs = new TaskCompletionSource<bool>();
+            //process.Exited += (sender, args) =>
+            //{
+            //    tcs.SetResult(true);
+            //    process.Dispose();
+            //};
+
+            //return tcs.Task;
+        }
+
+        static string CleanFileNameSlashes(string scriptFileName)
+        {
+            return scriptFileName.Replace('\\', '/');
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Spoon.Sample
         protected void Application_Start()
         {
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            SnapshotGenerator.GenerateSnapshotCollectionAsync(_urls, HostingEnvironment.MapPath("~/Snapshots/")).Wait();
+            SnapshotGenerator.InitializeAsync(_urls, HostingEnvironment.MapPath("~/Snapshots/")).Wait();
         }
     }
 }

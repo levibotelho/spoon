@@ -8,7 +8,7 @@ namespace Spoon.Sample.Controllers
 {
     public class HomeController : Controller
     {
-        public ViewResult Index()
+        public ViewResult Index(string escapedFragment)
         {
             return View();
         }
