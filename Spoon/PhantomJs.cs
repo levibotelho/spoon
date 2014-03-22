@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -33,8 +32,6 @@ namespace Spoon
         public static void RunScript(string scriptFileName)
         {
             scriptFileName = CleanFileNameSlashes(scriptFileName);
-            ExtractAssemblyAsync();
-
             var startInfo = new ProcessStartInfo(PhantomExecutablePath, scriptFileName)
             {
                 RedirectStandardError = true,

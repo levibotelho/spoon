@@ -5,9 +5,9 @@
     }])
     .config(["$routeProvider", function($routeProvider) {
         $routeProvider
-            .when("/index", { templateUrl: "/Content/Views/Index.html" })
+            .when("/home", { templateUrl: "/Content/Views/Home.html" })
             .when("/contact", { templateUrl: "/Content/Views/Contact.html" })
             .when("/about", { templateUrl: "/Content/Views/About.html" })
-            .otherwise({ redirectTo: "/index" });
+            .otherwise({ redirectTo: "/home" });
     }])
     .controller("index", []);

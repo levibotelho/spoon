@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
@@ -33,22 +32,17 @@ namespace Spoon
                 "phantom.exit();" +
             "}";
 
-        public static ScriptFile GenerateScriptFile(IEnumerable<KeyValuePair<string, string>> urlFileNamePairs)
+        public static ScriptFile GenerateScriptFile(string url, string fileName)
         {
             var path = Path.GetTempFileName();
-            File.WriteAllText(path, GenerateScript(urlFileNamePairs));
+            File.WriteAllText(path, GenerateScript(url, fileName));
             return new ScriptFile(path);
         }
 
-        static string GenerateScript(IEnumerable<KeyValuePair<string, string>> urlFileNamePairs)
+        static string GenerateScript(string url, string fileName)
         {
             var urlFileNameArray = new StringBuilder(ScriptFileHeader + "[");
-            foreach (var pair in urlFileNamePairs)
-            {
-                urlFileNameArray.AppendFormat("['{0}','{1}'],", pair.Key, pair.Value.Replace("\\", "\\\\"));
-            }
-
-            urlFileNameArray.Remove(urlFileNameArray.Length - 1, 1);
+            urlFileNameArray.AppendFormat("['{0}','{1}']", url, fileName.Replace("\\", "\\\\"));
             urlFileNameArray.Append("]");
             urlFileNameArray.Append(ScriptFileFooter);
             return urlFileNameArray.ToString();

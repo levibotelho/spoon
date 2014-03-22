@@ -42,8 +42,7 @@
     <Compile Include="PhantomJs.cs" />
     <Compile Include="ScriptFile.cs" />
     <Compile Include="ScriptFileGenerator.cs" />
-    <Compile Include="SnapshotDictionary.cs" />
-    <Compile Include="SnapshotGenerator.cs" />
+    <Compile Include="SnapshotManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
