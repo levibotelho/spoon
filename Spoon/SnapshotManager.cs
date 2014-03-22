@@ -21,7 +21,7 @@ namespace Spoon
             _isInitialized = true;
         }
 
-        public static string GetSnapshotUrl(string escapedFragment)
+        public static async Task<string> GetSnapshotUrlAsync(string escapedFragment)
         {
             if (!_isInitialized)
                 throw new InvalidOperationException("The InitializeAsync method must be called before retreiving a snapshot.");
@@ -35,7 +35,7 @@ namespace Spoon
             var snapshotPath = Path.Combine(_targetDirectory, Guid.NewGuid() + ".html");
             using (var script = ScriptFileGenerator.GenerateScriptFile(_escapedFragmentUrlMapping[escapedFragment], snapshotPath))
             {
-                PhantomJs.RunScript(script.FullName);
+                await PhantomJs.RunScriptAsync(script.FullName);
             }
             _escapedFragmentSnapshotPathMapping[escapedFragment] = snapshotPath;
             return snapshotPath;

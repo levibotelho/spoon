@@ -29,34 +29,31 @@ namespace Spoon
             }
         }
 
-        public static void RunScript(string scriptFileName)
+        public static Task RunScriptAsync(string scriptFileName)
         {
             scriptFileName = CleanFileNameSlashes(scriptFileName);
-            var startInfo = new ProcessStartInfo(PhantomExecutablePath, scriptFileName)
+            var tcs = new TaskCompletionSource<bool>();
+            var process = new Process
             {
-                RedirectStandardError = true,
-                UseShellExecute = false
+                EnableRaisingEvents = true,
+                StartInfo = new ProcessStartInfo(PhantomExecutablePath, scriptFileName)
+                {
+                    RedirectStandardError = true,
+                    UseShellExecute = false
+                }
             };
-
-            var process = Process.Start(startInfo);
-            if (process == null)
-                throw new InvalidOperationException("The phantomjs process cannot be started. This may be because another instance is already running.");
-            process.WaitForExit();
-
-            if (process.ExitCode != 0)
+            process.Exited += (sender, args) =>
             {
-                var errorMessage = process.StandardError.ReadToEnd();
-                throw new InvalidOperationException("The phantomjs process did not exit correctly. The corresponding error message was: " + errorMessage);
-            }
-                
-            //var tcs = new TaskCompletionSource<bool>();
-            //process.Exited += (sender, args) =>
-            //{
-            //    tcs.SetResult(true);
-            //    process.Dispose();
-            //};
-
-            //return tcs.Task;
+                if (process.ExitCode != 0)
+                {
+                    var errorMessage = process.StandardError.ReadToEnd();
+                    throw new InvalidOperationException("The phantomjs process did not exit correctly. The corresponding error message was: " + errorMessage);
+                }
+                tcs.SetResult(true);
+                process.Dispose();
+            };
+            process.Start();
+            return tcs.Task;
         }
 
         static string CleanFileNameSlashes(string scriptFileName)
