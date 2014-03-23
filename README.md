@@ -11,18 +11,18 @@ Spoon takes snapshots of your dynamic pages and hooks in to standard ASP.NET act
 2. Reference the DLL in an ASP.NET project.
 3. In your `global.asax`, add the following code to `Application_Start()`. 
 
-		// Dictionary mapping escaped fragments to page URLs
+		// Dictionary mapping escaped fragments to page URLs. This may be generated from a Sitemap.
 		var escapedFragmentUrlPairs = new Dictionary<string, string>
 		{
 			{ "home", "http://www.example.com/home" },
 			{ "about", "http://www.example.com/about" },
 			{ "contact", "http://www.example.com/contact" },
-		}
+		};
 	
 		var snapshotsPath = HostingEnvironment.MapPath("[Path to snapshot folder]");
 		foreach (var file in new DirectoryInfo(snapshotsPath).EnumerateFiles())
 			file.Delete();
-		SnapshotManager.InitializeAsync(, snapshotsPath).Wait();
+		SnapshotManager.InitializeAsync(escapedFragmentUrlPairs, snapshotsPath).Wait();
 
 	You may want to surround this with the `#if RELEASE` preprocessor directive to prevent snapshots from being created during application debugging.
 

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Spoon</id>
+    <title>Spoon</title>
+    <version>1.0.0</version>
+    <authors>Levi Botelho</authors>
+    <owners>Levi Botelho</owners>
+    <licenseUrl>https://github.com/LeviBotelho/spoon/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/LeviBotelho/spoon</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Search Engine Optimization for ASP.NET Single Page Apps</description>
+    <summary>Search Engine Optimization for ASP.NET Single Page Apps</summary>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright © Levi Botelho 2014</copyright>
+    <tags>SEO ASP.NET SPA</tags>
+  </metadata>
+  <files>
+    <file src="..\bin\Release\Spoon.dll" target="lib\net40\Spoon.dll" />
+    <file src="readme.txt" target="" />
+    <file src="phantomjs-license.txt" target="" />
+  </files>
+</package>
