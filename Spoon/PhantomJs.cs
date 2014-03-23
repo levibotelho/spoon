@@ -8,25 +8,22 @@ namespace Spoon
 {
     static class PhantomJs
     {
-        const string PhantomResourceName = "Spoon.lib.phantomjs.exe";
-        static readonly string PhantomExecutableDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "lib");
-        static readonly string PhantomExecutablePath = Path.Combine(PhantomExecutableDirectory, "phantomjs.exe");
+        const string PhantomExecutableResourceName = "Spoon.lib.phantomjs.exe";
+        const string PhantomLicenseResourceName = "Spoon.lib.phantomjs-license.txt";
+        static readonly string PhantomTargetDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "lib");
+        static readonly string PhantomExecutableTargetPath = Path.Combine(PhantomTargetDirectory, "phantomjs.exe");
+        static readonly string PhantomLicenseTargetPath = Path.Combine(PhantomTargetDirectory, "phantomjs-license.txt");
 
         public static async Task ExtractAssemblyAsync()
         {
-            if (File.Exists(PhantomExecutablePath))
+            if (File.Exists(PhantomExecutableTargetPath))
                 return;
-            if (!Directory.Exists(PhantomExecutableDirectory))
-                Directory.CreateDirectory(PhantomExecutableDirectory);
-            using (var resourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(PhantomResourceName))
-            {
-                if (resourceStream == null)
-                    throw new InvalidOperationException("Failed to extract phantom.exe from assembly.");
-                using (var fileStream = File.Create(PhantomExecutablePath))
-                {
-                    await resourceStream.CopyToAsync(fileStream);
-                }
-            }
+            if (!Directory.Exists(PhantomTargetDirectory))
+                Directory.CreateDirectory(PhantomTargetDirectory);
+
+            var phantomExtraction = ExtractResourceAsync(PhantomExecutableResourceName, PhantomExecutableTargetPath);
+            var phantomLicenseExtraction = ExtractResourceAsync(PhantomLicenseResourceName, PhantomLicenseTargetPath);
+            await Task.WhenAll(phantomExtraction, phantomLicenseExtraction);
         }
 
         public static Task RunScriptAsync(string scriptFileName)
@@ -36,7 +33,7 @@ namespace Spoon
             var process = new Process
             {
                 EnableRaisingEvents = true,
-                StartInfo = new ProcessStartInfo(PhantomExecutablePath, scriptFileName)
+                StartInfo = new ProcessStartInfo(PhantomExecutableTargetPath, scriptFileName)
                 {
                     RedirectStandardError = true,
                     UseShellExecute = false
@@ -54,6 +51,19 @@ namespace Spoon
             };
             process.Start();
             return tcs.Task;
+        }
+
+        static async Task ExtractResourceAsync(string resourceName, string targetPath)
+        {
+            using (var resourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName))
+            {
+                if (resourceStream == null)
+                    throw new InvalidOperationException("Failed to extract resource \"" + resourceName + "\" from assembly.");
+                using (var fileStream = File.Create(targetPath))
+                {
+                    await resourceStream.CopyToAsync(fileStream);
+                }
+            }
         }
 
         static string CleanFileNameSlashes(string scriptFileName)
