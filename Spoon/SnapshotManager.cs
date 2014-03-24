@@ -27,7 +27,7 @@ namespace Spoon
                 throw new InvalidOperationException("The InitializeAsync method must be called before retreiving a snapshot.");
 
             if (!_escapedFragmentUrlMapping.ContainsKey(escapedFragment))
-                throw new InvalidOperationException("No snapshot has been defined for the escaped fragment \"" + escapedFragment + "\".");
+                throw new ArgumentException("No snapshot has been defined for the escaped fragment \"" + escapedFragment + "\".");
 
             if (_escapedFragmentSnapshotPathMapping.ContainsKey(escapedFragment))
                 return _escapedFragmentSnapshotPathMapping[escapedFragment];

@@ -1,23 +1,24 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>Spoon</id>
-    <title>Spoon</title>
-    <version>1.0.0</version>
-    <authors>Levi Botelho</authors>
-    <owners>Levi Botelho</owners>
+    <id>$id$</id>
+    <title>$id$</title>
+    <version>$version$</version>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
     <licenseUrl>https://github.com/LeviBotelho/spoon/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/LeviBotelho/spoon</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Search Engine Optimization for ASP.NET Single Page Apps</description>
-    <summary>Search Engine Optimization for ASP.NET Single Page Apps</summary>
-    <releaseNotes>Initial release.</releaseNotes>
+    <description>$description$</description>
+    <summary>$description$</summary>
+    <releaseNotes>Invalid fragment now throws ArgumentException and not InvalidOperationException. Included release for .NET 4.5.1.</releaseNotes>
     <copyright>Copyright © Levi Botelho 2014</copyright>
     <tags>SEO ASP.NET SPA</tags>
   </metadata>
   <files>
-    <file src="..\bin\Release\Spoon.dll" target="lib\net40\Spoon.dll" />
+    <file src="lib\45\Spoon.dll" target="" />
+    <file src="..\bin\Release\Spoon.dll" target="lib\451\Spoon.dll" />
     <file src="readme.txt" target="" />
-    <file src="phantomjs-license.txt" target="" />
+    <file src="..\lib\phantomjs-license.txt" target="phantomjs-license.txt" />
   </files>
 </package>
