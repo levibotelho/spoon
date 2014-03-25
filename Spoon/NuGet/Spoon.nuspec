@@ -11,7 +11,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Search Engine Optimization for ASP.NET Single Page Apps</description>
     <summary>Spoon creates and serves snapshots of your web application's dynamic content in keeping with Google's "escaped fragment" Ajax crawling specification.</summary>
-    <releaseNotes>GetSnapshotUrlAsync renamed to GetSnapshotPathAsync. Added SnapshotManager documentation. Single release compatible with .NET 4.5 and superior.</releaseNotes>
+    <releaseNotes>Fixed errors in readme.</releaseNotes>
     <copyright>Copyright © Levi Botelho 2014</copyright>
     <tags>SEO ASP.NET SPA</tags>
   </metadata>
