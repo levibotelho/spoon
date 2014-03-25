@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace Spoon
 {
+    /// <summary>
+    /// Creates and manages page snapshots.
+    /// </summary>
     public static class SnapshotManager
     {
         static Dictionary<string, string> _escapedFragmentUrlMapping;
@@ -12,6 +15,11 @@ namespace Spoon
         static string _targetDirectory;
         static bool _isInitialized;
 
+        /// <summary>
+        /// Initializes the SnapshotManager. This method must be called before the SnapshotManager is used for the first time.
+        /// </summary>
+        /// <param name="escapedFragmentUrlPairs">The collection of escaped fragments to handle, each mapped to a corresponding snapshot URL.</param>
+        /// <param name="targetDirectory">The directory in which to create the snapshot files.</param>
         public static async Task InitializeAsync(Dictionary<string, string> escapedFragmentUrlPairs, string targetDirectory)
         {
             _escapedFragmentUrlMapping = escapedFragmentUrlPairs;
@@ -21,7 +29,12 @@ namespace Spoon
             _isInitialized = true;
         }
 
-        public static async Task<string> GetSnapshotUrlAsync(string escapedFragment)
+        /// <summary>
+        /// Returns the path to the snapshot file corresponding to an escaped fragment value.
+        /// </summary>
+        /// <param name="escapedFragment">The escaped fragment value for which to retrieve a page snapshot.</param>
+        /// <returns>The path to the snapshot file corresponding to the escaped fragment.</returns>
+        public static async Task<string> GetSnapshotPathAsync(string escapedFragment)
         {
             if (!_isInitialized)
                 throw new InvalidOperationException("The InitializeAsync method must be called before retreiving a snapshot.");

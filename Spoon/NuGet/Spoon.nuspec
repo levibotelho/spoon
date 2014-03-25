@@ -3,21 +3,20 @@
   <metadata>
     <id>Spoon</id>
     <title>Spoon</title>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <authors>Levi Botelho</authors>
     <owners>Levi Botelho</owners>
     <licenseUrl>https://github.com/LeviBotelho/spoon/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/LeviBotelho/spoon</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Search Engine Optimization for ASP.NET Single Page Apps</description>
-    <summary>Search Engine Optimization for ASP.NET Single Page Apps</summary>
-    <releaseNotes>Invalid fragment now throws ArgumentException and not InvalidOperationException. Included release for .NET 4.5.1.</releaseNotes>
+    <summary>Spoon creates and serves snapshots of your web application's dynamic content in keeping with Google's "escaped fragment" Ajax crawling specification.</summary>
+    <releaseNotes>GetSnapshotUrlAsync renamed to GetSnapshotPathAsync. Added SnapshotManager documentation. Single release compatible with .NET 4.5 and superior.</releaseNotes>
     <copyright>Copyright © Levi Botelho 2014</copyright>
     <tags>SEO ASP.NET SPA</tags>
   </metadata>
   <files>
-    <file src="lib\45\Spoon.dll" target="lib\45\Spoon.dll" />
-    <file src="..\bin\Release\Spoon.dll" target="lib\451\Spoon.dll" />
+    <file src="..\bin\Release\Spoon.dll" target="lib\45\Spoon.dll" />
     <file src="readme.txt" target="" />
     <file src="..\lib\phantomjs-license.txt" target="phantomjs-license.txt" />
   </files>

@@ -11,7 +11,7 @@ namespace Spoon.Sample.Controllers
         {
             if (_escaped_fragment_ != null)
             {
-                var path = await SnapshotManager.GetSnapshotUrlAsync(_escaped_fragment_);
+                var path = await SnapshotManager.GetSnapshotPathAsync(_escaped_fragment_);
                 if (path == null)
                     throw new ArgumentException("Invalid _escaped_fragment_");
                 return File(path, "text/html");
