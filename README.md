@@ -31,10 +31,10 @@ Spoon takes snapshots of your dynamic pages and hooks in to standard ASP.NET act
 		{
 		    if (_escaped_fragment_ != null)
 		    {
-		        string path;
+		        var path = string.Empty;
 		        try
 		        {
-		            path = await SnapshotManager.GetSnapshotUrlAsync(_escaped_fragment_);
+		            path = await SnapshotManager.GetSnapshotPathAsync(_escaped_fragment_);
 		        }
 		        catch (ArgumentException)
 		        {
