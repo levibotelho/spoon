@@ -17,7 +17,10 @@ function BlobWriter(storageAccount, storageAccessKey, containerName) {
     };
     
     self.putBlob = function(blobName, contentStream) {
-        self.blobService.putBlockBlobFromFile(self.containerName, blobName, contentStream)
+        self.blobService.putBlockBlobFromFile(self.containerName, blobName, contentStream, function(error) {
+            if (error)
+                throw new Error(error);
+        });
     };
 
     self.deleteBlob = function(blobName) {
@@ -25,5 +28,5 @@ function BlobWriter(storageAccount, storageAccessKey, containerName) {
     };
 
     if (!self.doesContainerExist(self.containerName))
-        throw new Error('The container ' + containerName + ' does not exist.');
+        throw new Error('The container ' + self.containerName + ' does not exist.');
 }

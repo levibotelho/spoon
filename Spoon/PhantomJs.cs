@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Spoon
 {
@@ -10,7 +11,7 @@ namespace Spoon
     {
         const string PhantomExecutableResourceName = "Spoon.lib.phantomjs.exe";
         const string PhantomLicenseResourceName = "Spoon.lib.phantomjs-license.txt";
-        static readonly string PhantomTargetDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "lib");
+        static readonly string PhantomTargetDirectory = Path.Combine(HttpRuntime.BinDirectory, "lib");
         static readonly string PhantomExecutableTargetPath = Path.Combine(PhantomTargetDirectory, "phantomjs.exe");
         static readonly string PhantomLicenseTargetPath = Path.Combine(PhantomTargetDirectory, "phantomjs-license.txt");
 
