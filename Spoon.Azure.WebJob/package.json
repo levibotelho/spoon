@@ -8,7 +8,7 @@
     "email": "levi_botelho@hotmail.com"
   },
   "dependencies": {
-    "azure": "^0.8.1",
-    "phantomjs": "^1.9.7-1"
+    "phantomjs": "^1.9.7-1",
+    "azure-mgmt-storage": "^0.9.1-pre.2"
   }
 }
