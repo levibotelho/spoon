@@ -1,0 +1,1 @@
+﻿exports.azureTableConnectionString = 'connection string]';

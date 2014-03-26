@@ -1,0 +1,13 @@
+{
+  "name": "Spoon.Azure.WebJob",
+  "version": "0.0.0",
+  "description": "Spoon.Azure.WebJob",
+  "main": "app.js",
+  "author": {
+    "name": "Levi Botelho",
+    "email": "levi_botelho@hotmail.com"
+  },
+  "dependencies": {
+	"phantomjs": "1.9.7-1"
+  }
+}
