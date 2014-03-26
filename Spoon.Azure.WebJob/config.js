@@ -1,1 +1,1 @@
-﻿exports.azureTableConnectionString = 'connection string]';
+﻿exports.azureTableConnectionString = '[connection string]';
