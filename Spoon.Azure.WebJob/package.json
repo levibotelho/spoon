@@ -10,5 +10,10 @@
   "dependencies": {
     "phantomjs": "^1.9.7-1",
     "azure-mgmt-storage": "^0.9.1-pre.2"
-  }
+  },
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-jshint": "^0.9.2"
+  },
+  "jshintConfig": {}
 }

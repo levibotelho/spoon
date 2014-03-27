@@ -12,14 +12,14 @@ function BlobWriter(storageAccount, storageAccessKey, containerName) {
         };
 
         self.blobService.listContainers(options, function(error, containers) {
+            if (error) throw error;
             return containers ? containers.length > 0 : false;
         });
     };
     
-    self.putBlob = function(blobName, contentStream) {
-        self.blobService.putBlockBlobFromFile(self.containerName, blobName, contentStream, function(error) {
-            if (error)
-                throw new Error(error);
+    self.putBlob = function(blobName, text) {
+        self.blobService.createBlockBlobFromText(self.containerName, blobName, text, function(error) {
+            if (error) throw error;
         });
     };
 
