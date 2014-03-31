@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spoon", "Spoon\Spoon.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spoon.Sample", "Spoon.Sample\Spoon.Sample.csproj", "{66A46310-9C51-43D5-B4DC-C26B193060AA}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Spoon.Azure.WebJob", "Spoon.Azure.WebJob\Spoon.Azure.WebJob.njsproj", "{8E90BF97-A53E-4594-B0C5-76BB274DD4C2}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Spoon.Azure.SnapshotGenerator", "Spoon.Azure.SnapshotGenerator\Spoon.Azure.SnapshotGenerator.njsproj", "{5E9B4C20-5A30-428D-8077-461C6EC765BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{66A46310-9C51-43D5-B4DC-C26B193060AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66A46310-9C51-43D5-B4DC-C26B193060AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66A46310-9C51-43D5-B4DC-C26B193060AA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8E90BF97-A53E-4594-B0C5-76BB274DD4C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E90BF97-A53E-4594-B0C5-76BB274DD4C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E90BF97-A53E-4594-B0C5-76BB274DD4C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8E90BF97-A53E-4594-B0C5-76BB274DD4C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E9B4C20-5A30-428D-8077-461C6EC765BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E9B4C20-5A30-428D-8077-461C6EC765BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E9B4C20-5A30-428D-8077-461C6EC765BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E9B4C20-5A30-428D-8077-461C6EC765BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
