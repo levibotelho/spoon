@@ -1,4 +1,3 @@
-debugger;
 var config = require('./config');
 var BlobWriter = require('./blob-writer');
 var blobWriter = new BlobWriter(config.azureStorageAccount, config.azureAccessKey, config.azureContainerName);
