@@ -1,7 +1,7 @@
-﻿var namePrefix = "_escaped_fragment_=";
+﻿var namePrefix = '_escaped_fragment_=';
 exports.generate = function(url) {
-    var fragmentIndex = url.indexOf("#!") + 2;
-    var name = url.substr(fragmentIndex);
+    var hashbangIndex = url.indexOf("#!");
+    var name = url.substr(hashbangIndex + 2);
     if (name == '/') name = '';
-    return fragmentIndex == -1 ? namePrefix + '.html' : namePrefix + name + '.html';
+    return hashbangIndex == -1 ? namePrefix + '.html' : namePrefix + name + '.html';
 };
