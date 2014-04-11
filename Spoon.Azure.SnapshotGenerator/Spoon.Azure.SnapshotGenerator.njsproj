@@ -5,6 +5,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>Spoon.Azure.SnapshotGenerator</Name>
     <RootNamespace>Spoon.Azure.SnapshotGenerator</RootNamespace>
+    <NameOfLastUsedPublishProfile>Filesystem</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -12,7 +13,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>5e9b4c20-5a30-428d-8077-461c6ec765bb</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>src\app.js</StartupFile>
+    <StartupFile>run.js</StartupFile>
     <StartWebBrowser>False</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -30,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Gruntfile.js" />
-    <Compile Include="src\app.js" />
+    <Compile Include="run.js" />
     <Compile Include="src\blob-name-generator.js" />
     <Compile Include="src\blob-writer.js" />
     <Compile Include="src\config.js" />

@@ -1,8 +1,8 @@
-var config = require('./config');
-var BlobWriter = require('./blob-writer');
+var config = require('./src/config');
+var BlobWriter = require('./src/blob-writer');
 var blobWriter = new BlobWriter(config.azureStorageAccount, config.azureAccessKey, config.azureContainerName);
-var blobNameGenerator = require('./blob-name-generator');
-var scraper = require('./scraper');
+var blobNameGenerator = require('./src/blob-name-generator');
+var scraper = require('./src/scraper');
 var blobNames = [];
 var urls = config.urls;
 
@@ -15,7 +15,11 @@ for (var i = 0; i < urls.length; i++) {
 }
 
 blobWriter.clearContainer();
-scraper.scrapeUrls(urls, function(result, i) {
+console.log("Blob container cleared.");
+scraper.scrapeUrls(urls, function(err, result, i) {
+    if (err) {
+        console.error(err);
+    }
     blobWriter.putBlob(blobNames[i], result);
     console.log(blobNames[i] + ' saved.');
 });

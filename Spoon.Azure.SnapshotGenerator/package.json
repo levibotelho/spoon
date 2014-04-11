@@ -2,7 +2,7 @@
   "name": "Spoon.Azure.WebJob",
   "version": "0.0.0",
   "description": "Spoon.Azure.WebJob",
-  "main": "src/app.js",
+  "main": "run.js",
   "author": {
     "name": "Levi Botelho",
     "email": "levi_botelho@hotmail.com"

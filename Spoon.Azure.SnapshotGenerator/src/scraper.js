@@ -1,13 +1,25 @@
 ﻿function ScrapeUrl(urls, i, cb, phantom) {
-    phantom.createPage(function(error, page) {
-        if (error) throw error;
-        page.open(urls[i], function(error) {
-            if (error) throw error;
+    phantom.createPage(function(createErr, page) {
+        if (createErr) {
+            console.error(createErr);
+            cb(createErr);
+        }
+
+        page.open(urls[i], function(openErr) {
+            if (openErr) {
+                console.error(openErr);
+                cb(openErr);
+            }
+
             page.evaluate(function() {
                 return document.documentElement.outerHTML;
-            }, function(error, result) {
-                if (error) throw error;
-                cb(result, i++);
+            }, function(evaluateErr, result) {
+                if (evaluateErr) {
+                    console.error(evaluateErr);
+                    cb(evaluateErr);
+                }
+
+                cb(null, result, i++);
                 if (i == urls.length)
                     phantom.exit();
                 else
@@ -18,8 +30,15 @@
 }
 
 exports.scrapeUrls = function(urls, cb) {
-    require('node-phantom-simple').create(function(error, phantom) {
-        if (error) throw error;
-            ScrapeUrl(urls, 0, cb, phantom);
-    }, { phantomPath: require('phantomjs').path });
+    var nodePhantom = require('node-phantom-simple');
+    var phantomPath = require('phantomjs').path;
+    console.log('phantomPath = ' + phantomPath);
+    nodePhantom.create(function(err, phantom) {
+        console.log('phantom created');
+        if (err) {
+            console.error(err);
+            cb(err);
+        }
+        ScrapeUrl(urls, 0, cb, phantom);
+    }, { phantomPath: phantomPath });
 };
