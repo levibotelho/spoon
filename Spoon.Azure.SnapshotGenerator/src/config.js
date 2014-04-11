@@ -1,5 +1,6 @@
 ﻿exports.azureStorageAccount = '';
 exports.azureAccessKey = '';
 exports.azureContainerName = '';
-// Urls must be in hashbang form. (i.e. http://www.example.com/#!/about)
+// All URLs must be in hashbang form (http://www.example.com/#!/about) with the exception of the
+// home page which does not have to be (but can be).
 exports.urls = [''];
