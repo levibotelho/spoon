@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spoon", "Spoon\Spoon.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spoon.Sample", "Spoon.Sample\Spoon.Sample.csproj", "{66A46310-9C51-43D5-B4DC-C26B193060AA}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Spoon.Azure.SnapshotGenerator", "Spoon.Azure.SnapshotGenerator\Spoon.Azure.SnapshotGenerator.njsproj", "{5E9B4C20-5A30-428D-8077-461C6EC765BB}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Spoon.Standalone", "Spoon.Azure.SnapshotGenerator\Spoon.Standalone.njsproj", "{5E9B4C20-5A30-428D-8077-461C6EC765BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

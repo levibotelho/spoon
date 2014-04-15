@@ -32,13 +32,9 @@
 exports.scrapeUrls = function(urls, cb) {
     var nodePhantom = require('node-phantom-simple');
     var phantomPath = require('phantomjs').path;
-    console.log('phantomPath = ' + phantomPath);
     nodePhantom.create(function(err, phantom) {
         console.log('phantom created');
-        if (err) {
-            console.error(err);
-            cb(err);
-        }
+        if (err) cb(err);
         ScrapeUrl(urls, 0, cb, phantom);
     }, { phantomPath: phantomPath });
 };

@@ -3,8 +3,8 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <Name>Spoon.Azure.SnapshotGenerator</Name>
-    <RootNamespace>Spoon.Azure.SnapshotGenerator</RootNamespace>
+    <Name>Spoon.Standalone</Name>
+    <RootNamespace>Spoon.Standalone</RootNamespace>
     <NameOfLastUsedPublishProfile>Filesystem</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -12,7 +12,8 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>5e9b4c20-5a30-428d-8077-461c6ec765bb</ProjectGuid>
-    <ProjectHome>.</ProjectHome>
+    <ProjectHome>
+    </ProjectHome>
     <StartupFile>run.js</StartupFile>
     <StartWebBrowser>False</StartWebBrowser>
     <SearchPath>
@@ -36,6 +37,7 @@
     <Compile Include="src\blob-writer.js" />
     <Compile Include="src\config.js" />
     <Compile Include="src\scraper.js" />
+    <Compile Include="src\sitemap-reader.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>
