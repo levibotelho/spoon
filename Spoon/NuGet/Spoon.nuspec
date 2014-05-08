@@ -3,7 +3,7 @@
   <metadata>
     <id>Spoon</id>
     <title>Spoon</title>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <authors>Levi Botelho</authors>
     <owners>Levi Botelho</owners>
     <licenseUrl>https://github.com/LeviBotelho/spoon/blob/master/LICENSE</licenseUrl>
@@ -12,9 +12,9 @@
     <description>Spoon creates and serves snapshots of your web application's dynamic content in keeping with Google's
     "escaped fragment" Ajax crawling specification. It is particularily well-adapted to single page web applications.</description>
     <summary>Search Engine Optimization for ASP.NET Single Page Apps</summary>
-    <releaseNotes>Improved readme.</releaseNotes>
+    <releaseNotes>Fixed readme banghash error.</releaseNotes>
     <copyright>Copyright © Levi Botelho 2014</copyright>
-    <tags>SEO ASP.NET SPA Angular Single Page App</tags>
+    <tags>SEO ASP.NET SPA AngularJS Single Page App Google Search Engine Optimization Escaped Fragment</tags>
   </metadata>
   <files>
     <file src="..\bin\Release\Spoon.dll" target="lib\45\Spoon.dll" />
