@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spoon", "Spoon\Spoon.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spoon.Sample", "Spoon.Sample\Spoon.Sample.csproj", "{66A46310-9C51-43D5-B4DC-C26B193060AA}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Spoon.Standalone", "Spoon.Standalone\Spoon.Standalone.njsproj", "{5E9B4C20-5A30-428D-8077-461C6EC765BB}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7CEF7764-6202-4D29-9CC8-DB00350787B2}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE = LICENSE
@@ -29,10 +27,6 @@ Global
 		{66A46310-9C51-43D5-B4DC-C26B193060AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66A46310-9C51-43D5-B4DC-C26B193060AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66A46310-9C51-43D5-B4DC-C26B193060AA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5E9B4C20-5A30-428D-8077-461C6EC765BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E9B4C20-5A30-428D-8077-461C6EC765BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E9B4C20-5A30-428D-8077-461C6EC765BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E9B4C20-5A30-428D-8077-461C6EC765BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
