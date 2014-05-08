@@ -18,6 +18,7 @@ Spoon takes snapshots of your dynamic pages and hooks in to standard ASP.NET act
 		    { "/contact", "http://www.example.com/!#/contact" },
 		};
 		
+		// Replace [Path] with the path to the directory where your snapshots are to be stored.
 		var snapshotsPath = HostingEnvironment.MapPath("[Path]");
 		var snapshotsDirectory = new DirectoryInfo(snapshotsPath);
 		foreach (var file in snapshotsDirectory.EnumerateFiles())
