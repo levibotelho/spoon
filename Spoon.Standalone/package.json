@@ -1,0 +1,25 @@
+{
+  "name": "Spoon.Azure.WebJob",
+  "version": "0.0.0",
+  "description": "Spoon.Azure.WebJob",
+  "main": "run.js",
+  "author": {
+    "name": "Levi Botelho",
+    "email": "levi_botelho@hotmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LeviBotelho/spoon"
+  },
+  "dependencies": {
+    "phantomjs": "^1.9.7-1",
+    "node-phantom-simple": "^1.2.0",
+    "graceful-fs": "^2.0.3",
+    "azure": "^0.8.1"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-jshint": "^0.9.2"
+  },
+  "jshintConfig": {}
+}

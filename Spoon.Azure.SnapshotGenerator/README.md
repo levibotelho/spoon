@@ -1,3 +1,0 @@
-﻿# Spoon.Azure.SnapshotGenerator
-
-

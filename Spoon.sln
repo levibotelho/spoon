@@ -1,13 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.30324.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spoon", "Spoon\Spoon.csproj", "{7B1FC001-F2E9-43A3-8A2B-498CEF5D32CE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spoon.Sample", "Spoon.Sample\Spoon.Sample.csproj", "{66A46310-9C51-43D5-B4DC-C26B193060AA}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Spoon.Standalone", "Spoon.Azure.SnapshotGenerator\Spoon.Standalone.njsproj", "{5E9B4C20-5A30-428D-8077-461C6EC765BB}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Spoon.Standalone", "Spoon.Standalone\Spoon.Standalone.njsproj", "{5E9B4C20-5A30-428D-8077-461C6EC765BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7CEF7764-6202-4D29-9CC8-DB00350787B2}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

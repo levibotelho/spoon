@@ -3,17 +3,18 @@
   <metadata>
     <id>Spoon</id>
     <title>Spoon</title>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <authors>Levi Botelho</authors>
     <owners>Levi Botelho</owners>
     <licenseUrl>https://github.com/LeviBotelho/spoon/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/LeviBotelho/spoon</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Search Engine Optimization for ASP.NET Single Page Apps</description>
-    <summary>Spoon creates and serves snapshots of your web application's dynamic content in keeping with Google's "escaped fragment" Ajax crawling specification.</summary>
-    <releaseNotes>Fixed errors in readme.</releaseNotes>
+    <description>Spoon creates and serves snapshots of your web application's dynamic content in keeping with Google's
+    "escaped fragment" Ajax crawling specification. It is particularily well-adapted to single page web applications.</description>
+    <summary>Search Engine Optimization for ASP.NET Single Page Apps</summary>
+    <releaseNotes>Improved readme.</releaseNotes>
     <copyright>Copyright © Levi Botelho 2014</copyright>
-    <tags>SEO ASP.NET SPA</tags>
+    <tags>SEO ASP.NET SPA Angular Single Page App</tags>
   </metadata>
   <files>
     <file src="..\bin\Release\Spoon.dll" target="lib\45\Spoon.dll" />
