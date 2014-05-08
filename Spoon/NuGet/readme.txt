@@ -14,9 +14,9 @@ To use Spoon, hook the following code into your `Application_Start()` method.
 	// Dictionary mapping escaped fragments to page URLs. This may be generated from a Sitemap.
 	var escapedFragmentUrlPairs = new Dictionary<string, string>
 	{
-		{ "/home", "http://www.example.com/!#/home" },
-		{ "/about", "http://www.example.com/!#/about" },
-		{ "/contact", "http://www.example.com/!#/contact" },
+		{ "/home", "http://www.example.com/#!/home" },
+		{ "/about", "http://www.example.com/#!/about" },
+		{ "/contact", "http://www.example.com/#!/contact" },
 	};
 		
 	// TODO: Fill in the path to the directory where your snapshots are to be stored.
