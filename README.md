@@ -1,5 +1,9 @@
 #Spoon
 
+## Deprecation notice
+
+Google now supports crawling of web applications that use JavaScript to present their content, and has [deprecated](https://webmasters.googleblog.com/2015/10/deprecating-our-ajax-crawling-scheme.html) the escaped fragment Ajax crawling scheme that Spoon was designed to take advantage of. As such, this library is no longer needed, and no longer maintained.
+
 ##What does it do?
 Spoon provides search engine optimisation (SEO) for single page ASP.NET applications, such as those written in AngularJS, by making their dynamic content crawlable.
 
@@ -11,7 +15,7 @@ Spoon takes snapshots of your dynamic pages and hooks in to standard ASP.NET act
 *Are you developing a Windows Azure Web Site? If so, then please see Spoon.Standalone.*
 
 1. Grab a copy of Spoon off NuGet (`PM> Install-Package Spoon`)
-2. Hook the following code into your `Application_Start()` method. 
+2. Hook the following code into your `Application_Start()` method.
 
 		// Dictionary mapping escaped fragments to page URLs. This may be generated from a Sitemap.
 		var escapedFragmentUrlPairs = new Dictionary<string, string>
@@ -20,13 +24,13 @@ Spoon takes snapshots of your dynamic pages and hooks in to standard ASP.NET act
 		    { "/about", "http://www.example.com/#!/about" },
 		    { "/contact", "http://www.example.com/#!/contact" },
 		};
-		
+
 		// TODO: Fill in the path to the directory where your snapshots are to be stored.
 		var snapshotsPath = HostingEnvironment.MapPath("");
 		var snapshotsDirectory = new DirectoryInfo(snapshotsPath);
 		foreach (var file in snapshotsDirectory.EnumerateFiles())
 		    file.Delete();
-			
+
 		SnapshotManager.InitializeAsync(escapedFragmentUrlPairs, snapshotsPath).Wait();
 
 3. Hook in Spoon to your site's default Action method.
@@ -46,7 +50,7 @@ Spoon takes snapshots of your dynamic pages and hooks in to standard ASP.NET act
 		        }
 		        return File(path, "text/html");
 		    }
-		
+
 		    return View();
 		}
 
